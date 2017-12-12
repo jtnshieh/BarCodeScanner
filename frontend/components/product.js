@@ -10,7 +10,10 @@ class Product extends Component {
     type: Camera.Constants.Type.back,
     };
     // console.log(this.props);
-    this.props.fetchProduct("0038000768620");
+  }
+
+  componentDidMount() {
+    this.props.fetchProduct("0038000768620");  
   }
 
   onBarCodeRead(e) {

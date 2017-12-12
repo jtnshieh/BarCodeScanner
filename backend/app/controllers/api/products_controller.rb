@@ -1,6 +1,6 @@
 class Api::ProductsController < ApplicationController
   def show
-    @product = Product.find_by(upc_code: params[:upc_code])
+    @product = Product.find_by_id(params[:id])
     if @product
       render "api/products/show"
     else
