@@ -11,7 +11,6 @@ const Routers = StackNavigator(
       }
     }
   },
-
   { headerMode: 'none' }
 );
 

@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  Dimensions,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
-} from 'react-native';
-import Camera from 'react-native-camera';
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { Camera, Permissions } from 'expo';
 
 class Product extends Component {
   constructor(props) {
     super(props);
     this.onBarCodeRead = this.onBarCodeRead.bind(this);
+    this.state = {
+    type: Camera.Constants.Type.back,
+    };
+    // console.log(this.props);
+    this.props.fetchProduct("0038000768620");
   }
 
   onBarCodeRead(e) {
@@ -20,19 +18,19 @@ class Product extends Component {
         "Barcode Found!",
         "Type: " + e.type + "\nData: " + e.data
     );
+    // console.log(this.props);
   }
 
   render() {
     return (
       <View style={styles.container}>
 
-      <Camera
-      ref={(cam) => {this.camera = cam;}}
-      onBarCodeRead={this.onBarCodeRead()}
-      style={styles.preview}
-      aspect={Camera.constants.Aspect.fill}>
-      </Camera>
-
+        <Camera
+          ref={(cam) => {this.camera = cam;}}
+          onBarCodeRead={this.onBarCodeRead}
+          style={styles.preview}
+          autoFocus={Camera.Constants.autoFocus}>
+        </Camera>
 
       </View>
     );
@@ -51,4 +49,4 @@ const styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('Product', () => Product);
+export default Product;

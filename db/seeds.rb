@@ -10,4 +10,4 @@
 
 water = Product.create!({product_name: "Crystal Geyser Spring Water", upc_code: "075140005024"})
 chips = Product.create!({product_name: "Jackson's Honest Sweet Potato Chips", upc_code: "856823004127"})
-krispies = Product.create!({product_name: "Kellogg's Cocoa Krispies", upc_code: "038000768620"})
+krispies = Product.create!({product_name: "Kellogg's Cocoa Krispies", upc_code: "0038000768620"})
